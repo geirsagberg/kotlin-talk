@@ -3,20 +3,20 @@ package net.sagberg
 import arrow.core.continuations.either
 import arrow.core.getOrHandle
 import arrow.core.left
+import arrow.core.valueOr
 import arrow.core.zip
-
 
 suspend fun main() {
     with(ArrowKitchen) {
-        val result = either<CookingError, Lunch> {
+        val result = either {
             val maybeSpoiledLettuce = getFood("lettuce")
-                .bind { FoodNotFound }
+                .bind { FoodNotFound("lettuce") }
                 .mapLeft {
                     DetailedError("Lettuce was spoiled")
                 }.toValidatedNel()
 
             val possiblyRottenTomato = getFood("tomato")
-                .bind { FoodNotFound }
+                .bind { FoodNotFound("tomato") }
                 .mapLeft {
                     DetailedError("Tomato was spoiled")
                 }.toValidatedNel()
@@ -26,9 +26,9 @@ suspend fun main() {
 
             maybeSpoiledLettuce.zip(possiblyRottenTomato) { freshLettuce, niceTomato ->
                 prepareLunch(knife, freshLettuce, niceTomato)
-            }.fold({ errors ->
+            }.valueOr { errors ->
                 DetailedError("Problematic ingredients: ${errors.joinToString { it.message }}").left()
-            }, { it }).bind()
+            }.bind()
         }
 
         result.getOrHandle(::handleError).also(::println)

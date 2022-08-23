@@ -1,7 +1,7 @@
 package net.sagberg
 
 fun main() {
-    with(NormalKitchen) {
+    with(VanillaKitchen) {
         val result = try {
             val lettuce = getFood("lettuce") ?: throw Exception("No lettuce :(")
             val knife = getUtensil("knife") ?: throw Exception("No knife :(")

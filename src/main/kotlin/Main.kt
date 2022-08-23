@@ -16,8 +16,6 @@ suspend fun main() {
     }
 
     val maybeQuote = maybeFetchQuote()
-
-
 }
 
 suspend fun maybeFetchQuote(): Either<Throwable, Unit> = Either.catch {

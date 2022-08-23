@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.6.21"
+    kotlin("jvm") version "1.7.10"
 }
 
 group = "net.sagberg"
@@ -10,15 +10,15 @@ repositories {
 }
 
 val arrowVersion = "1.1.2"
-val ktorVersion = "2.0.1"
-val kotestVersion = "5.3.0"
+val ktorVersion = "2.1.0"
+val kotestVersion = "5.4.2"
 
 dependencies {
     testImplementation(kotlin("test"))
     testImplementation("io.kotest", "kotest-assertions-core-jvm", kotestVersion)
     testImplementation("io.kotest", "kotest-runner-junit5", kotestVersion)
 
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
     implementation("io.arrow-kt:arrow-core:$arrowVersion")
     implementation("io.arrow-kt:arrow-fx-coroutines:$arrowVersion")
     implementation("io.ktor:ktor-client-core:$ktorVersion")

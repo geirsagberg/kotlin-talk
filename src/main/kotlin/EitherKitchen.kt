@@ -8,7 +8,7 @@ object EitherKitchen {
         if (foodExists())
             Food(type).right()
         else
-            FoodNotFound.left()
+            FoodNotFound(type).left()
 
     fun getUtensil(type: String) =
         if (utensilExists())

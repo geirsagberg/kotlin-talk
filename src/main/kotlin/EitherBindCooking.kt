@@ -5,10 +5,12 @@ import arrow.core.getOrHandle
 
 suspend fun main() {
     with(EitherKitchen) {
-        either<CookingError, Lunch> {
+        either {
             val lettuce = getFood("lettuce").bind()
             val knife = getUtensil("knife").bind()
             prepareLunch(lettuce, knife).bind()
-        }.getOrHandle(::handleError).also(::println)
+        }.getOrHandle {
+            handleError(it)
+        }.also(::println)
     }
 }

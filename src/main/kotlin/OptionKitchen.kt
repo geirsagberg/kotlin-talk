@@ -3,7 +3,6 @@ package net.sagberg
 import arrow.core.None
 import arrow.core.Some
 
-class SpoiledFood(val type: String)
 
 object OptionKitchen {
     fun getFood(type: String) =
@@ -18,9 +17,9 @@ object OptionKitchen {
         else
             None
 
-    fun prepareLunch(utensil: Utensil, food: Food) =
+    fun prepareLunch(utensil: Utensil, vararg food: Food) =
         if (noAccidents())
-            Some("Enjoy your ${food.type} prepared by ${utensil.type} in an Option-driven kitchen!")
+            Some(Lunch(utensil, food.toList(), OptionKitchen::class))
         else
             None
 }

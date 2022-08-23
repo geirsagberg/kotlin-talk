@@ -1,7 +1,7 @@
 package net.sagberg
 
 fun main() {
-    with(NormalKitchen) {
+    with(VanillaKitchen) {
         val lettuce = getFood("lettuce")
 
         if (lettuce != null) {

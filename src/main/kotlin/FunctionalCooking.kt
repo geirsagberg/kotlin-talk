@@ -1,7 +1,7 @@
 package net.sagberg
 
 fun main() {
-    with(NormalKitchen) {
+    with(VanillaKitchen) {
         val result = getFood("lettuce")?.let { lettuce ->
             getUtensil("knife")?.let { knife ->
                 prepareLunch(knife, lettuce)
