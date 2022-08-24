@@ -2,12 +2,16 @@ package net.sagberg
 
 sealed class CookingError
 
-data class FoodNotFound(val food: String) : CookingError()
-object UtensilNotFound : CookingError()
-data class DetailedError(val message: String) : CookingError()
-
-fun handleError(cookingError: CookingError): String = when (cookingError) {
-    is FoodNotFound -> "No ${cookingError.food} found :("
-    UtensilNotFound -> "That utensil is unavailable :("
-    is DetailedError -> cookingError.message
+data class FoodNotFound(val food: String) : CookingError() {
+    override fun toString(): String = "No $food found :("
 }
+
+object UtensilNotFound : CookingError() {
+    override fun toString(): String = "That utensil is unavailable :("
+}
+
+data class DetailedError(val message: String) : CookingError() {
+    override fun toString(): String = message
+}
+
+fun handleError(cookingError: CookingError): String = cookingError.toString()

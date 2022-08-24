@@ -3,6 +3,7 @@
 ## Agenda
 
 - Functional Programming i Kotlin
+- EDD (Exception-Driven Development)
 - Arrow
     - Option
     - Either
