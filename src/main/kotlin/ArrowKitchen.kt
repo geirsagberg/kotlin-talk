@@ -6,8 +6,6 @@ import arrow.core.left
 import arrow.core.right
 
 object ArrowKitchen {
-    fun chopFood(food: Food) = ChoppedFood(food.type)
-
     fun getFood(type: String) =
         if (foodExists())
             Some(existingFood(type))

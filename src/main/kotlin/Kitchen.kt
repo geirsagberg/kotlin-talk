@@ -19,6 +19,6 @@ fun foodExists() = Math.random() < 0.7
 
 fun foodIsOkay() = Math.random() < 0.8
 
-fun utensilExists() = Math.random() < 0.9
+fun utensilExists() = Math.random() < 0.8
 
 fun noAccidents() = Math.random() > 0.6

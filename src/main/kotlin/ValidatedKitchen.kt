@@ -3,9 +3,9 @@ package net.sagberg
 import arrow.core.*
 
 object ValidatedKitchen {
-    fun getFood(type: String): ValidatedNel<CookingError, Food> =
+    fun getFood(type: String): Validated<NonEmptyList<CookingError>, Food> =
         if (foodExists())
-            Food(type).valid()
+            Valid(Food(type))
         else
             FoodNotFound(type).invalidNel()
 

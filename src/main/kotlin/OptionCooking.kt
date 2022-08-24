@@ -10,9 +10,9 @@ fun main() {
                     prepareLunch(knife, lettuce)
                 }
             }
-        maybeLunch
+        val result = maybeLunch
             .map { lunch -> lunch.toString() }
             .getOrElse { "Something was missing :(" }
-        println(maybeLunch)
+        println(result)
     }
 }

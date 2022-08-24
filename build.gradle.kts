@@ -18,9 +18,9 @@ dependencies {
     testImplementation("io.kotest", "kotest-assertions-core-jvm", kotestVersion)
     testImplementation("io.kotest", "kotest-runner-junit5", kotestVersion)
 
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+//    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
     implementation("io.arrow-kt:arrow-core:$arrowVersion")
-    implementation("io.arrow-kt:arrow-fx-coroutines:$arrowVersion")
+//    implementation("io.arrow-kt:arrow-fx-coroutines:$arrowVersion")
     implementation("io.ktor:ktor-client-core:$ktorVersion")
     implementation("io.ktor:ktor-client-cio:$ktorVersion")
     implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")

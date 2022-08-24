@@ -14,8 +14,6 @@ suspend fun main() {
     } catch (exception: Exception) {
         println("Could not fetch quote: ${exception.localizedMessage}")
     }
-
-    val maybeQuote = maybeFetchQuote()
 }
 
 suspend fun maybeFetchQuote(): Either<Throwable, Unit> = Either.catch {

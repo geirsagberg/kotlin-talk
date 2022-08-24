@@ -1,16 +1,18 @@
 package net.sagberg
 
 import arrow.core.continuations.either
-import arrow.core.getOrHandle
+
+fun String.identity() = this
 
 suspend fun main() {
     with(EitherKitchen) {
-        either {
+        val lunchResult = either {
             val lettuce = getFood("lettuce").bind()
+            val tomato = getFood("tomato").bind()
             val knife = getUtensil("knife").bind()
-            prepareLunch(lettuce, knife).bind()
-        }.getOrHandle {
-            handleError(it)
-        }.also(::println)
+            prepareLunch(knife, lettuce, tomato).bind()
+        }
+        lunchResult.fold({ it.toString() }, { it.toString() })
+            .also(::println)
     }
 }

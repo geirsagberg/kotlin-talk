@@ -8,7 +8,7 @@ fun main() {
         val lunchOrError =
             getFood("lettuce").flatMap { lettuce ->
                 getUtensil("knife").flatMap { knife ->
-                    prepareLunch(lettuce, knife)
+                    prepareLunch(knife, lettuce)
                 }
             }
 
