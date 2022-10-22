@@ -18,9 +18,7 @@ sealed class CustomError {
 }
 
 class EmptyException : Exception() {
-    override fun fillInStackTrace(): Throwable {
-        return this
-    }
+    override fun fillInStackTrace(): Throwable = this
 }
 
 fun failWithException() = try {

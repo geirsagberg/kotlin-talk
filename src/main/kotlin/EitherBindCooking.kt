@@ -2,8 +2,6 @@ package net.sagberg
 
 import arrow.core.continuations.either
 
-fun String.identity() = this
-
 suspend fun main() {
     with(EitherKitchen) {
         val lunchResult = either {

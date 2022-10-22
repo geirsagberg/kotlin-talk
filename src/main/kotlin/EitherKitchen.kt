@@ -1,13 +1,12 @@
 package net.sagberg
 
-import arrow.core.Either
 import arrow.core.left
 import arrow.core.right
 
 object EitherKitchen {
     fun getFood(type: String) =
         if (foodExists())
-            Either.Right(Food(type))
+            Food(type).right()
         else
             FoodNotFound(type).left()
 
